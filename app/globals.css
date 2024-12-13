@@ -1,16 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
 
-:root {
-  --font-sans: Quicksand;
-  --font-display: ;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
   @apply antialiased;
+  font-family: Quicksand, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,6 +25,11 @@ body {
 
 @layer base {
   :root {
+    --font-sans: "Quicksand", sans-serif;
+    --font-mono: "Quicksand", monospace;
+    --font-serif: "Quicksand", serif;
+    --font-heading: "Quicksand", sans-serif;
+
     /* Name: custom color palette
        Author: Ilias Ism
        URL: https://gradient.page */

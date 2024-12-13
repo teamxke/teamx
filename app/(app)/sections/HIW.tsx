@@ -2,7 +2,7 @@ import React from "react";
 
 const HowItWorksSection = () => {
   return (
-    <section className="py-16 bg-background">
+    <section id='how-it-works' className="py-16 bg-background">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-semibold mb-8">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-8">
