@@ -1,5 +1,3 @@
-import AppBar from "@/components/widgets/AppBar";
-import Footer from "@/components/widgets/Footer";
 import { Metadata } from "next";
 import React from "react";
 import ProjectsSection from "./sections/Projects";
