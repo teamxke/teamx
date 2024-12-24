@@ -54,6 +54,11 @@ jobs:
         working-directory: ./terraform
         run: terraform init
 
+      - name: Import Existing Resource Group
+        run: |
+          terraform import azurerm_resource_group.webapp_rg /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp
+
+
       - name: Terraform Plan
         working-directory: ./terraform
         run: terraform plan
