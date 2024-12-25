@@ -59,6 +59,16 @@ jobs:
         run: |
           terraform import azurerm_resource_group.webapp_rg /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp
 
+      - name: Import Existing Azure Container Registry
+        working-directory: ./terraform
+        run: |
+          terraform import azurerm_container_registry.acr /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp/providers/Microsoft.ContainerRegistry/registries/teamxui
+
+      - name: Import Existing Azure Container Group
+        working-directory: ./terraform
+        run: |
+          terraform import azurerm_container_group.teamx_container_group /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp/providers/Microsoft.ContainerInstance/containerGroups/teamx-container-group
+
       - name: Terraform Plan
         working-directory: ./terraform
         run: terraform plan
