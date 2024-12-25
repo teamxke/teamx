@@ -29,12 +29,31 @@ resource "azurerm_container_group" "teamx_container_group" {
     memory = "1.5"
 
     ports {
+      port     = 80
+      protocol = "TCP"
+    }
+
+    ports {
       port     = 3000
       protocol = "TCP"
     }
 
     environment_variables = {
       NODE_ENV = "production"
+    }
+  }
+
+  ip_address {
+    type = "Public"
+
+    ports {
+      port     = 80
+      protocol = "TCP"
+    }
+
+    ports {
+      port     = 3000
+      protocol = "TCP"
     }
   }
 
