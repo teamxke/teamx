@@ -1,12 +1,9 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline- Build and Deploy to Azure Container Registry
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: main
+  workflow_dispatch:
 
 jobs:
   build_and_push:
@@ -14,65 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@main
 
       - name: Log in to Azure CLI
-        uses: azure/login@v1
+        uses: azure/docker-login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Log in to Azure Container Registry
-        run: |
-          az acr login --name teamxui
+          login-server: ${{ secrets.ACR_ENDPOINT }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and Push Docker Image
-        run: |
-          docker build -t teamxui.azurecr.io/teamx:latest .
-          docker push teamxui.azurecr.io/teamx:latest
-
-  deploy:
-    name: Deploy with Terraform
-    runs-on: ubuntu-latest
-    needs: build_and_push
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Log in to Azure CLI
-        uses: azure/login@v1
+        uses: docker/build-push-action@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_wrapper: false
-
-      - name: Terraform Init
-        working-directory: ./terraform
-        run: terraform init
-
-      - name: Import Existing Resource Group
-        working-directory: ./terraform
-        run: |
-          terraform import azurerm_resource_group.webapp_rg /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp
-
-      - name: Import Existing Azure Container Registry
-        working-directory: ./terraform
-        run: |
-          terraform import azurerm_container_registry.acr /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp/providers/Microsoft.ContainerRegistry/registries/teamxui
-
-      - name: Import Existing Azure Container Group
-        working-directory: ./terraform
-        run: |
-          terraform import azurerm_container_group.teamx_container_group /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/team_x_webapp/providers/Microsoft.ContainerInstance/containerGroups/teamx-container-group
-
-      - name: Terraform Plan
-        working-directory: ./terraform
-        run: terraform plan
-
-      - name: Terraform Apply
-        working-directory: ./terraform
-        run: terraform apply -auto-approve
+          push: true
+          tags: ${{ secrets.ACR_ENDPOINT }}/teamx:latest
+          dockerfile: ./Dockerfile
+        
+  
