@@ -17,9 +17,6 @@ const NavLinks = () => (
     <a href="#home" className="hover:text-primary">
       Home
     </a>
-    <a href="#how-it-works" className="hover:text-primary">
-      How it works
-    </a>
     <a href="#services" className="hover:text-primary">
       Services
     </a>
