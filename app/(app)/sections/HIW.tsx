@@ -37,7 +37,7 @@ const HowItWorksSection = () => {
               className="mb-8 flex items-start last:mb-0 group"
             >
               {/* Step Indicator */}
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary text-background font-bold flex items-center justify-center shadow-lg group-hover:scale-110 transform transition duration-300">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background font-bold flex items-center justify-center shadow-lg group-hover:scale-110 transform transition duration-300">
                 {step.id}
               </div>
               {/* Step Details */}
