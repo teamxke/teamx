@@ -8,8 +8,7 @@ export const Footer = () => (
         <div>
           <h3 className="text-lg font-semibold mb-4">About Us</h3>
           <p className="text-sm">
-            At Team X, we develop innovative software solutions to make life
-            easier for businesses and individuals.
+            At Team X, we develop innovative software solutions and cultivate talents. 
           </p>
         </div>
 

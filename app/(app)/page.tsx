@@ -6,6 +6,7 @@ import AboutSection from "./sections/About";
 import HeroSection from "./sections/Hero";
 import HowItWorksSection from "./sections/HIW";
 import ServicesSection from "./sections/Services";
+import AwardsSection from "./sections/Awards";
 
 export const metadata: Metadata = {
   title: "Welcome",
@@ -18,6 +19,7 @@ const App = () => {
       <HowItWorksSection />
       <ServicesSection />
       <AboutSection />
+      <AwardsSection />
       <ProjectsSection />
       <ContactSection />
     </>
