@@ -2,14 +2,37 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <section id='about' className="container mx-auto px-4 py-10">
-      <h2 className="text-3xl font-semibold text-center mb-6">About Team X</h2>
-      <p className="text-center text-lg max-w-2xl mx-auto">
-        At Team X, our mission is to develop cutting-edge software solutions
-        that make life easier and businesses more efficient. Based in Kenya, we take pride in building impactful projects like{" "}
-        <strong>Dishi-Fiti</strong> and <strong>Lipa-Kodi</strong>, designed
-        to solve real-world problems.
-      </p>
+    <section
+      id="about"
+      className="py-16 bg-background"
+    >
+      <div className="container mx-auto px-6">
+        {/* Section Heading */}
+        <h2 className="text-4xl font-bold text-center mb-8">About Team X</h2>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto space-y-6">
+          <p className="text-lg leading-relaxed text-justify">
+            <strong>Team X</strong> is a unique software solutions startup that
+            excels in delivering innovative, high-quality software products
+            while simultaneously fostering the next generation of technology
+            professionals. We specialize in crafting custom software solutions
+            that cater to a diverse range of client needs.
+          </p>
+          <p className="text-lg leading-relaxed text-justify">
+            Alongside our professional services, we are deeply committed to
+            mentoring students, integrating them into real-world projects to
+            provide valuable hands-on experience. Our approach combines the
+            dynamism of fresh talent with the wisdom of industry veterans,
+            ensuring that we remain at the forefront of technological
+            advancements while contributing significantly to the tech community.
+          </p>
+          <blockquote className="text-black dark:text-white border-l-4 border-primary pl-4 italic text-lg text-secondary">
+            &quot;By Students, for Students. Innovating Solutions, Cultivating
+            Talent.&quot;
+          </blockquote>
+        </div>
+      </div>
     </section>
   );
 };
