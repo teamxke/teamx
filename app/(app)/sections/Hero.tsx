@@ -8,8 +8,7 @@ const HeroSection = () => {
           Team<span className="text-primary">X</span>
         </h1>
         <p className="text-2xl max-w-3xl mx-auto text-center mb-6">
-          We create innovative solutions to make businesses smarter and more
-          efficient.
+        Innovating Solutions, Cultivating Talent
         </p>
         <a
           href="#"

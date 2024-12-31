@@ -28,8 +28,7 @@ const AboutSection = () => {
             advancements while contributing significantly to the tech community.
           </p>
           <blockquote className="text-black dark:text-white border-l-4 border-primary pl-4 italic text-lg text-secondary">
-            &quot;By Students, for Students. Innovating Solutions, Cultivating
-            Talent.&quot;
+            &quot;By Students, for Students.&quot;
           </blockquote>
         </div>
       </div>
